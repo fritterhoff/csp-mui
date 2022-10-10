@@ -58,6 +58,7 @@ MyDocument.getInitialProps = async (ctx) => {
     const initialProps = await getCspInitialProps({ ctx, trustifyStyles: true });
     // You can consider sharing the same Emotion cache between all the SSR requests to speed up performance.
     // However, be aware that it can have global side effects.
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const cache = createEmotionCache();
     // eslint-disable-next-line @typescript-eslint/unbound-method

@@ -8,7 +8,6 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 import Link from "next/link";
 
-
 export default function ButtonAppBar() {
     return (
         <AppBar position="fixed">

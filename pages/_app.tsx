@@ -22,7 +22,8 @@ const Offset = styled("div")(({ theme }) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return theme.mixins.toolbar;
 });
-function MyApp({ Component, pageProps: { ...pageProps }, emotionCache = clientSideEmotionCache }: { pageProps: { } } & {
+// eslint-disable-next-line @typescript-eslint/ban-types
+function MyApp({ Component, pageProps: { ...pageProps }, emotionCache = clientSideEmotionCache }: { pageProps: {} } & {
     Component: NextComponentType<NextPageContext, unknown, Record<string, unknown>>;
     router: Router;
     __N_SSG?: boolean;
@@ -34,18 +35,18 @@ function MyApp({ Component, pageProps: { ...pageProps }, emotionCache = clientSi
         <Head>
             <title>Portal</title>
         </Head>
-        
-            <ThemeProvider theme={theme}>
-                {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-                <CssBaseline />
-                <ButtonAppBar />
 
-                <Offset />
-                <Container sx={{ paddingTop: "10px", paddingBottom: "10px" }} maxWidth="xl" >
-                    <Component {...pageProps} />
-                </Container>
-            </ThemeProvider>
-        </CacheProvider>;
+        <ThemeProvider theme={theme}>
+            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+            <CssBaseline />
+            <ButtonAppBar />
+
+            <Offset />
+            <Container sx={{ paddingTop: "10px", paddingBottom: "10px" }} maxWidth="xl" >
+                <Component {...pageProps} />
+            </Container>
+        </ThemeProvider>
+    </CacheProvider>;
 }
 
 export default MyApp;
